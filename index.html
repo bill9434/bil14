@@ -22,6 +22,33 @@
       background: linear-gradient(135deg, #4e54c8, #8f94fb);
       color: #333;
       overflow: hidden;
+      position: relative;
+    }
+
+    /* Marquee title */
+    .marquee {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: #4e54c8;
+      color: #fff;
+      font-family: 'Cursive', Arial, sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      padding: 15px;
+      animation: marquee 10s linear infinite;
+    }
+
+    /* Keyframes for scrolling effect */
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
     /* Main container */
@@ -42,14 +69,6 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     }
 
-    /* Engaging Title */
-    .engaging-title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #4e54c8;
-      margin-bottom: 1rem;
-    }
-
     /* Main Heading */
     h1 {
       color: #4e54c8;
@@ -67,7 +86,7 @@
       font-size: 1rem;
       transition: box-shadow 0.3s ease;
     }
-    
+
     /* Focus effect for input */
     input:focus {
       outline: none;
@@ -146,6 +165,11 @@
 </head>
 <body>
 
+  <!-- Scrolling Marquee Title -->
+  <div class="marquee">
+    <div class="marquee-content">Welcome to the Ultimate Password Strength Checker & Generator!</div>
+  </div>
+
   <!-- Floating circles for background effect -->
   <div class="circle"></div>
   <div class="circle"></div>
@@ -153,9 +177,6 @@
 
   <!-- Main container -->
   <div class="container">
-    <!-- Engaging Title -->
-    <div class="engaging-title">Engaging Title</div>
-
     <!-- Main Heading -->
     <h1>Password Checker & Generator</h1>
 
