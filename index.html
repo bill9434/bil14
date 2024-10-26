@@ -3,86 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Strength Checker</title>
+  <title>Password Strength Checker & Generator</title>
   <style>
+    /* Basic reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body styling */
     body {
       font-family: Arial, sans-serif;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f3f4f6;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: #333;
+      overflow: hidden;
     }
+
+    /* Main container */
     .container {
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
       padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    input[type="password"] {
+
+    /* Hover effects on container */
+    .container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Heading */
+    h1 {
+      color: #4e54c8;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Input fields */
+    input[type="password"], input[type="text"] {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
     }
+    
+    /* Focus effect for input */
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(78, 84, 200, 0.5);
+    }
+
+    /* Button styling */
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #4e54c8;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8f94fb;
+    }
+
+    /* Strength display text */
     .strength {
       font-weight: bold;
-      color: #333;
+      margin-top: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    /* Floating animations for background circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    /* Circle styling */
+    .circle:nth-child(1) {
+      width: 150px;
+      height: 150px;
+      background: rgba(78, 84, 200, 0.4);
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .circle:nth-child(2) {
+      width: 100px;
+      height: 100px;
+      background: rgba(143, 148, 251, 0.4);
+      top: 70%;
+      left: 60%;
+      animation-delay: 3s;
+    }
+
+    .circle:nth-child(3) {
+      width: 120px;
+      height: 120px;
+      background: rgba(78, 84, 200, 0.4);
+      top: 50%;
+      left: 80%;
+      animation-delay: 5s;
+    }
+
+    /* Animation keyframes */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Floating circles for background effect -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <!-- Main container -->
   <div class="container">
-    <h2>Password Strength Checker</h2>
+    <h1>Password Checker & Generator</h1>
+
+    <!-- Password Strength Checker -->
     <input type="password" id="password" placeholder="Enter your password" oninput="checkStrength()">
     <p class="strength" id="strengthText">Strength: </p>
-  </div>
 
-  <script>
-    function checkStrength() {
-      const password = document.getElementById("password").value;
-      let strengthText = document.getElementById("strengthText");
-      let strength = 0;
+    <!-- Password Generator -->
+    <button onclick="generatePassword()">Generate Strong Password</button>
+    <input type="text" id="generatedPassword" readonly>
 
-      if (password.length >= 8) strength += 1;
-      if (password.match(/[A-Z]/)) strength += 1;
-      if (password.match(/[a-z]/)) strength += 1;
-      if (password.match(/[0-9]/)) strength += 1;
-      if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+    <script>
+      /* Check password strength function */
+      function checkStrength() {
+        const password = document.getElementById("password").value;
+        let strengthText = document.getElementById("strengthText");
+        let strength = 0;
 
-      switch (strength) {
-        case 0:
-        case 1:
-          strengthText.textContent = "Strength: Very Weak";
-          strengthText.style.color = "red";
-          break;
-        case 2:
-          strengthText.textContent = "Strength: Weak";
-          strengthText.style.color = "orange";
-          break;
-        case 3:
-          strengthText.textContent = "Strength: Moderate";
-          strengthText.style.color = "yellow";
-          break;
-        case 4:
-          strengthText.textContent = "Strength: Strong";
-          strengthText.style.color = "green";
-          break;
-        case 5:
-          strengthText.textContent = "Strength: Very Strong";
-          strengthText.style.color = "darkgreen";
-          break;
+        if (password.length >= 8) strength += 1;
+        if (password.match(/[A-Z]/)) strength += 1;
+        if (password.match(/[a-z]/)) strength += 1;
+        if (password.match(/[0-9]/)) strength += 1;
+        if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+
+        switch (strength) {
+          case 0:
+          case 1:
+            strengthText.textContent = "Strength: Very Weak";
+            strengthText.style.color = "red";
+            break;
+          case 2:
+            strengthText.textContent = "Strength: Weak";
+            strengthText.style.color = "orange";
+            break;
+          case 3:
+            strengthText.textContent = "Strength: Moderate";
+            strengthText.style.color = "yellow";
+            break;
+          case 4:
+            strengthText.textContent = "Strength: Strong";
+            strengthText.style.color = "lightgreen";
+            break;
+          case 5:
+            strengthText.textContent = "Strength: Very Strong";
+            strengthText.style.color = "green";
+            break;
+        }
       }
-    }
-  </script>
+
+      /* Generate random strong password function */
+      function generatePassword() {
+        const length = 12;
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]|:;<>,.?/~`-=";
+        let password = "";
+        for (let i = 0, n = charset.length; i < length; ++i) {
+          password += charset.charAt(Math.floor(Math.random() * n));
+        }
+        document.getElementById("generatedPassword").value = password;
+      }
+    </script>
+
+  </div>
 
 </body>
 </html>
