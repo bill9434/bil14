@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f4f6;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .strength {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Password Strength Checker</h2>
+    <input type="password" id="password" placeholder="Enter your password" oninput="checkStrength()">
+    <p class="strength" id="strengthText">Strength: </p>
+  </div>
+
+  <script>
+    function checkStrength() {
+      const password = document.getElementById("password").value;
+      let strengthText = document.getElementById("strengthText");
+      let strength = 0;
+
+      if (password.length >= 8) strength += 1;
+      if (password.match(/[A-Z]/)) strength += 1;
+      if (password.match(/[a-z]/)) strength += 1;
+      if (password.match(/[0-9]/)) strength += 1;
+      if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+
+      switch (strength) {
+        case 0:
+        case 1:
+          strengthText.textContent = "Strength: Very Weak";
+          strengthText.style.color = "red";
+          break;
+        case 2:
+          strengthText.textContent = "Strength: Weak";
+          strengthText.style.color = "orange";
+          break;
+        case 3:
+          strengthText.textContent = "Strength: Moderate";
+          strengthText.style.color = "yellow";
+          break;
+        case 4:
+          strengthText.textContent = "Strength: Strong";
+          strengthText.style.color = "green";
+          break;
+        case 5:
+          strengthText.textContent = "Strength: Very Strong";
+          strengthText.style.color = "darkgreen";
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
