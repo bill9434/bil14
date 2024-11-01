@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Meter - Your Go-To Online Tool Collection</title>
+    <meta name="description" content="Secure Password Meter offers a variety of trending online tools to enhance your productivity and streamline your online experience. Explore our collection today!">
+    <meta name="keywords" content="online tools, password strength checker, password generator, unit converter, text summarizer, trending tools, free online tools, productivity tools">
+    <meta name="author" content="Your Name">
+    <link rel="canonical" href="https://securepasswordmeter.com">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #0d0d0d; /* Dark background for matrix effect */
+            color: #fff;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background: rgba(0, 123, 255, 0.8);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 193, 7, 0.8);
+            color: black;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 0; /* Additional padding to accommodate fixed nav */
+            animation: fadeIn 2s;
+        }
+
+        .title {
+            font-size: 3em;
+            margin: 20px 0;
+            color: #ffc107; /* Bright color for the title */
+        }
+
+        .cta-button {
+            background: #ffc107;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            margin-bottom: 0; /* Removed margin to eliminate space */
+        }
+
+        .cta-button:hover {
+            background: #ffca2c;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 40px; /* Increased padding */
+            text-align: center;
+            margin-top: 80px; /* Space for fixed nav */
+            background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+            width: 80%; /* Width of the section */
+            margin-left: auto; /* Center align */
+            margin-right: auto; /* Center align */
+            max-width: 800px; /* Maximum width */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+        }
+
+        .about-title {
+            background: #007bff; /* Background color for the title */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Padding for the title */
+            border: 2px solid #ffc107; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            display: inline-block; /* Fit the content */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+            margin-top: 20px; /* Space above footer */
+        }
+
+        footer form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        footer input, footer textarea {
+            padding: 10px;
+            margin: 5px 0;
+            width: 80%;
+            max-width: 400px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        footer button:hover {
+            background: #0056b3;
+        }
+
+        /* Matrix Effect */
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .matrix span {
+            color: #0f0; /* Green color for matrix effect */
+            font-family: monospace;
+            font-size: 20px;
+            position: absolute;
+            bottom: 100%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix" id="matrix"></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#tools">Tools</a> <!-- Added Tools menu item -->
+        <a href="#about">About</a>
+    </nav>
+
+    <header id="home">
+        <h1 class="title">Secure Password Meter</h1>
+        <p>Your go-to platform for discovering and using trending online tools.</p>
+        <a href="#about" class="cta-button">Learn More</a>
+    </header>
+
+    <section id="about">
+        <h2 class="about-title">About Our Tools</h2>
+        <p>At Secure Password Meter, we understand the increasing demand for online tools that enhance productivity and streamline daily tasks. In today's fast-paced digital world, having reliable and efficient tools at your fingertips is essential. Our platform provides a diverse range of tools that are not only user-friendly but also designed to meet the needs of modern users. One of the most sought-after tools is the Password Strength Checker; as cybersecurity becomes a growing concern, ensuring that your passwords are robust is critical. Our tool analyzes your password's complexity and offers suggestions to enhance its strength, helping you safeguard your online accounts from potential threats. Another popular tool is the Password Generator, which helps users create unique and strong passwords that are difficult to guess. In an era where reusing passwords is common, having a reliable password generator can significantly reduce the risk of security breaches. Additionally, our Unit Converter allows users to effortlessly convert measurements between different units, whether for cooking, science, or daily tasks. Our Text Summarizer tool is ideal for students, professionals, and researchers alike, condensing lengthy articles or documents into concise summaries for easier digestion. Moreover, our Random Name Generator provides a fun and creative solution for writers and gamers in need of inspiration. We also feature an Image Compressor that reduces file sizes without compromising quality, allowing users to optimize images for websites or social media. Other trending tools include the QR Code Generator for creating scannable codes and the URL Shortener for social media sharing. At Secure Password Meter, we are committed to continuously updating our tool offerings based on the latest trends and user feedback, empowering you to tackle your online tasks with ease and confidence. Whether you're managing passwords, converting units, summarizing texts, or generating creative ideas, our collection is designed to enhance your online experience, helping you navigate the complexities of the digital world with greater efficiency.</p>
+    </section>
+
+    <footer>
+        <h2>Contact Us</h2>
+        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p>If you have any questions or need assistance, feel free to reach out!</p>
+    </footer>
+
+    <script>
+        // Matrix effect generation
+        const matrixContainer = document.getElementById('matrix');
+        const characters = '01';
+        const numberOfColumns = Math.floor(window.innerWidth / 20); // Adjust based on font size
+
+        for (let i = 0; i < numberOfColumns; i++) {
+            const span = document.createElement('span');
+            span.textContent = characters[Math.floor(Math.random() * characters.length)];
+            span.style.left = (i * 20) + 'px'; // Spacing between columns
+            span.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Random fall speed
+            matrixContainer.appendChild(span);
+        }
+
+        // Update matrix characters at intervals
+        setInterval(() => {
+            const spans = matrixContainer.getElementsByTagName('span');
+            for (let span of spans) {
+                span.textContent = characters[Math.floor(Math.random() * characters.length)];
+            }
+        }, 200);
+    </script>
+</body>
+</html>
+
